@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clienta Pulse Scout - Artist Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Clienta Pulse Scout</h1>
+            <p>AI-Powered Artist Analysis & Collaboration Intelligence</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>Artist Information</h2>
+                <form id="artistForm">
+                    <div class="form-group">
+                        <label for="artistName">Artist Name *</label>
+                        <input 
+                            type="text" 
+                            id="artistName" 
+                            placeholder="Enter artist name" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Artist Bio *</label>
+                        <textarea 
+                            id="bio" 
+                            placeholder="Describe the artist's style and background" 
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="followers">Follower Count *</label>
+                        <input 
+                            type="number" 
+                            id="followers" 
+                            placeholder="e.g., 50000" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="captions">Recent Captions *</label>
+                        <textarea 
+                            id="captions" 
+                            placeholder="Paste recent social media captions or song descriptions" 
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="musicLink">Music Link</label>
+                        <input 
+                            type="url" 
+                            id="musicLink" 
+                            placeholder="https://spotify.com/... or similar"
+                        >
+                    </div>
+
+                    <button type="submit" class="btn-analyze">
+                        🔍 Analyze Artist
+                    </button>
+                </form>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>📊 Artist Report</h2>
+                
+                <div class="report-header">
+                    <h3 id="reportArtistName"></h3>
+                    <div class="score-badge">
+                        <span class="score-label">Fit Score</span>
+                        <span class="score-value" id="fitScore"></span>
+                    </div>
+                </div>
+
+                <div class="report-grid">
+                    <div class="report-card">
+                        <h4>Stage</h4>
+                        <p id="stageValue" class="value"></p>
+                    </div>
+
+                    <div class="report-card">
+                        <h4>Genre</h4>
+                        <p id="genreValue" class="value"></p>
+                    </div>
+                </div>
+
+                <div class="report-section">
+                    <h4>💪 Strengths</h4>
+                    <ul id="strengthsList"></ul>
+                </div>
+
+                <div class="report-section">
+                    <h4>⚠️ Weaknesses</h4>
+                    <ul id="weaknessesList"></ul>
+                </div>
+
+                <div class="report-section">
+                    <h4>📧 Personalized Outreach</h4>
+                    <div class="outreach-box" id="outreachValue"></div>
+                </div>
+
+                <button type="button" class="btn-reset" onclick="resetForm()">
+                    ← Analyze Another Artist
+                </button>
+            </section>
+
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing artist with AI... Please wait</p>
+            </section>
+
+            <section class="error-section" id="errorSection" style="display: none;">
+                <h3>❌ Error</h3>
+                <p id="errorMessage"></p>
+                <button type="button" class="btn-reset" onclick="resetForm()">
+                    ← Try Again
+                </button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Clienta Pulse Scout • Powered by AI Analysis</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
