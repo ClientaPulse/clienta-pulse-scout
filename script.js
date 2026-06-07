@@ -1,7 +1,5 @@
 // Get API base URL (for local dev and deployed versions)
-const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000' 
-    : window.location.origin.replace(/\/$/, '');
+const API_BASE_URL = 'https://clienta-pulse-scout.onrender.com';
 
 // DOM Elements
 const artistForm = document.getElementById('artistForm');
@@ -60,7 +58,7 @@ artistForm.addEventListener('submit', async (e) => {
         displayResults(result);
     } catch (error) {
         console.error('Error:', error);
-        showError(error.message || 'Failed to connect to server. Make sure backend is running on http://localhost:3000');
+        showError(error.message || 'Failed to connect to server. Make sure backend is running on https://clienta-pulse-scout.onrender.com');
     }
 });
 
